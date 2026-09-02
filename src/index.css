@@ -1,0 +1,133 @@
+@import "tailwindcss";
+
+@layer base {
+  :root {
+    --font-syne: 'Syne', sans-serif;
+    --font-unbounded: 'Unbounded', sans-serif;
+    --font-bricolage: 'Bricolage Grotesque', sans-serif;
+    --font-serif-display: 'Instrument Serif', Georgia, serif;
+    --font-mono-code: 'JetBrains Mono', monospace;
+    --font-sans-body: 'Plus Jakarta Sans', sans-serif;
+  }
+
+  body {
+    font-family: var(--font-sans-body);
+    background-color: #0A0A0A;
+    color: #F0F0F0;
+    overflow-x: hidden;
+  }
+}
+
+/* Custom Typography Helpers */
+.font-syne {
+  font-family: var(--font-syne);
+}
+.font-unbounded {
+  font-family: var(--font-unbounded);
+}
+.font-bricolage {
+  font-family: var(--font-bricolage);
+}
+.font-serif-display {
+  font-family: var(--font-serif-display);
+}
+.font-mono-code {
+  font-family: var(--font-mono-code);
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 5px;
+  height: 5px;
+}
+::-webkit-scrollbar-track {
+  background: #0A0A0A;
+}
+::-webkit-scrollbar-thumb {
+  background: #262626;
+  border-radius: 2px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #D4FF00;
+}
+
+/* Marquee Animations */
+@keyframes marquee {
+  0% { transform: translateX(0%); }
+  100% { transform: translateX(-50%); }
+}
+
+@keyframes marquee-reverse {
+  0% { transform: translateX(-50%); }
+  100% { transform: translateX(0%); }
+}
+
+.animate-marquee {
+  display: flex;
+  width: 200%;
+  animation: marquee 25s linear infinite;
+}
+
+.animate-marquee:hover {
+  animation-play-state: paused;
+}
+
+.animate-marquee-reverse {
+  display: flex;
+  width: 200%;
+  animation: marquee-reverse 25s linear infinite;
+}
+
+.animate-marquee-reverse:hover {
+  animation-play-state: paused;
+}
+
+/* Editorial Minimalist Grids */
+.editorial-grid {
+  background-size: 48px 48px;
+  background-image: 
+    linear-gradient(to right, rgba(255, 255, 255, 0.035) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(255, 255, 255, 0.035) 1px, transparent 1px);
+}
+
+.editorial-dots {
+  background-image: radial-gradient(rgba(212, 255, 0, 0.15) 1px, transparent 0);
+  background-size: 28px 28px;
+}
+
+/* Glitch & Kinetic Text Effects */
+.glitch-hover {
+  position: relative;
+  transition: color 0.2s ease;
+}
+
+.glitch-hover:hover {
+  text-shadow: 2px 0 #D4FF00, -2px 0 #FFFFFF;
+}
+
+/* Noise texture generator overlay */
+.noise-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  pointer-events: none;
+  z-index: 9999;
+  opacity: 0.02;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+}
+
+/* Custom interactive button styles */
+.neo-brutal-btn {
+  transition: all 0.15s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.neo-brutal-btn:hover {
+  transform: translate(-2px, -2px);
+  box-shadow: 3px 3px 0px #D4FF00;
+}
+.neo-brutal-btn:active {
+  transform: translate(0px, 0px);
+  box-shadow: 0px 0px 0px transparent;
+}
+
